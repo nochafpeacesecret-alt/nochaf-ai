@@ -1,0 +1,13 @@
+{
+  "name": "Nochaf AI",
+  "short_name": "Nochaf AI",
+  "description": "Nochaf AI - Free smart AI assistant to chat, write, code and create",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0c",
+  "theme_color": "#0a0a0c",
+  "icons": [
+    {"src": "/icon-192.png","sizes": "192x192","type": "image/png"},
+    {"src": "/icon-512.png","sizes": "512x512","type": "image/png"}
+  ]
+}

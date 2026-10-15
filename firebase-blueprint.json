@@ -1,0 +1,278 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "User profile with isolation and settings",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "firstName": { "type": "string" },
+        "secondName": { "type": "string" },
+        "email": { "type": "string" },
+        "username": { "type": "string" },
+        "handle": { "type": "string" },
+        "securityQuestion": { "type": "string" },
+        "usernameSetupCompleted": { "type": "boolean" },
+        "bio": { "type": "string" },
+        "avatar": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "plan": { "type": "string" },
+        "isPrivate": { "type": "boolean" },
+        "role": { "type": "string" }
+      },
+      "required": ["uid", "handle"]
+    },
+    "Conversation": {
+      "title": "Conversation",
+      "description": "Nochaf.AI chat session isolated to user",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" },
+        "modelUsed": { "type": "string" },
+        "projectId": { "type": "string" }
+      },
+      "required": ["id", "userId", "title", "createdAt"]
+    },
+    "Message": {
+      "title": "Message",
+      "description": "Individual message in Nochaf.AI chat session",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "role": { "type": "string" },
+        "content": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "agentSteps": { "type": "string" },
+        "audioData": { "type": "string" }
+      },
+      "required": ["id", "role", "content", "timestamp"]
+    },
+    "Project": {
+      "title": "Project",
+      "description": "User AI Workspace Project",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "notes": { "type": "string" },
+        "codeSnippets": { "type": "string" },
+        "tasks": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "name", "createdAt"]
+    },
+    "Memory": {
+      "title": "Memory",
+      "description": "Private isolated AI memory item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "key": { "type": "string" },
+        "value": { "type": "string" },
+        "category": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "key", "value", "createdAt"]
+    },
+    "GeneratedImage": {
+      "title": "GeneratedImage",
+      "description": "User private generated image record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "prompt": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "aspectRatio": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "userId", "prompt", "imageUrl", "createdAt"]
+    },
+    "Report": {
+      "title": "Report",
+      "description": "Moderation report for safe platform compliance",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "reporterUid": { "type": "string" },
+        "targetType": { "type": "string" },
+        "targetId": { "type": "string" },
+        "reason": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "reporterUid", "targetType", "targetId", "reason", "createdAt"]
+    },
+    "DirectMessage": {
+      "title": "DirectMessage",
+      "description": "Direct peer-to-peer texting thread between users via @username",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "participants": { "type": "array" },
+        "participantHandles": { "type": "array" },
+        "participantNames": { "type": "array" },
+        "lastMessage": { "type": "string" },
+        "updatedAt": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "participants", "participantHandles", "createdAt"]
+    },
+    "GroupDiscussion": {
+      "title": "GroupDiscussion",
+      "description": "Group discussion of up to 80 people created by usernames",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "createdBy": { "type": "string" },
+        "creatorHandle": { "type": "string" },
+        "members": { "type": "array" },
+        "memberHandles": { "type": "array" },
+        "maxMembers": { "type": "number" },
+        "lastMessage": { "type": "string" },
+        "updatedAt": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "name", "createdBy", "members", "memberHandles", "createdAt"]
+    },
+    "UsernameRecord": {
+      "title": "UsernameRecord",
+      "description": "Unique username constraint registry mapping normalized username to uid",
+      "type": "object",
+      "properties": {
+        "username": { "type": "string" },
+        "uid": { "type": "string" },
+        "displayName": { "type": "string" },
+        "firstName": { "type": "string" },
+        "secondName": { "type": "string" },
+        "passwordHash": { "type": "string" },
+        "salt": { "type": "string" },
+        "securityQuestion": { "type": "string" },
+        "securityAnswerHash": { "type": "string" },
+        "syntheticEmail": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["username", "uid", "createdAt"]
+    },
+    "DeviceLimit": {
+      "title": "DeviceLimit",
+      "description": "Per-device signup rate and count tracker for anti-spam",
+      "type": "object",
+      "properties": {
+        "deviceId": { "type": "string" },
+        "count": { "type": "number" },
+        "lastSignup": { "type": "string" },
+        "lastCreatedAt": { "type": "string" },
+        "accountUids": { "type": "array" }
+      },
+      "required": ["deviceId", "count", "lastCreatedAt"]
+    },
+    "UserPrivate": {
+      "title": "UserPrivate",
+      "description": "Private linked credentials isolating Gmail to 1 account",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "googleEmail": { "type": "string" },
+        "linkedUsername": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "googleEmail", "linkedUsername"]
+    },
+    "SpamQueueItem": {
+      "title": "SpamQueueItem",
+      "description": "Human review queue for flagged spam behavior",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "senderUid": { "type": "string" },
+        "senderHandle": { "type": "string" },
+        "sampleText": { "type": "string" },
+        "reason": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["senderUid", "senderHandle", "status"]
+    },
+    "Appeal": {
+      "title": "Appeal",
+      "description": "Spam mute user appeal for admin review",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "uid": { "type": "string" },
+        "username": { "type": "string" },
+        "appealText": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["uid", "username", "status"]
+    }
+  },
+  "firestore": {
+    "/deviceLimits/{deviceId}": {
+      "schema": "DeviceLimit",
+      "description": "Rate limiting and 30-day signup counters per device"
+    },
+    "/usersPrivate/{uid}": {
+      "schema": "UserPrivate",
+      "description": "Private Google account linkages (1 Gmail = 1 account)"
+    },
+    "/spamQueue/{queueId}": {
+      "schema": "SpamQueueItem",
+      "description": "Human review queue for accounts with spam suspicion"
+    },
+    "/appeals/{appealId}": {
+      "schema": "Appeal",
+      "description": "User appeals for unmuting"
+    },
+    "/usernames/{username}": {
+      "schema": "UsernameRecord",
+      "description": "Global unique username index guaranteeing uniqueness across profiles"
+    },
+    "/users/{uid}": {
+      "schema": "UserProfile",
+      "description": "User profile document isolated per user"
+    },
+    "/users/{uid}/conversations/{conversationId}": {
+      "schema": "Conversation",
+      "description": "Private conversations for the user"
+    },
+    "/users/{uid}/conversations/{conversationId}/messages/{messageId}": {
+      "schema": "Message",
+      "description": "Private messages within a conversation"
+    },
+    "/users/{uid}/projects/{projectId}": {
+      "schema": "Project",
+      "description": "Private project workspace for the user"
+    },
+    "/users/{uid}/memories/{memoryId}": {
+      "schema": "Memory",
+      "description": "Private AI memory entries for the user"
+    },
+    "/users/{uid}/generatedImages/{imageId}": {
+      "schema": "GeneratedImage",
+      "description": "Private AI generated images"
+    },
+    "/reports/{reportId}": {
+      "schema": "Report",
+      "description": "Moderation abuse and safety reports"
+    },
+    "/directMessages/{dmId}": {
+      "schema": "DirectMessage",
+      "description": "Peer-to-peer texting threads in Genius Mode"
+    },
+    "/groupDiscussions/{groupId}": {
+      "schema": "GroupDiscussion",
+      "description": "Group discussions of maximum 80 people in Genius Mode"
+    }
+  }
+}

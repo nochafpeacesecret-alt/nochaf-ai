@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://nochaf-ai-apk.ai.studio/sitemap.xml

@@ -1,0 +1,11 @@
+{
+  "name": "Remix Remix Remix Remix Remix Remix Remix Remix Remix Remix Remix Remix Remix Remix Remix Remix Remix Remix Remix Remix Remix Remix Remix Remix Nochaf — Nochaf.AI \u0026 Nochaf.v",
+  "description": "Next-generation AI Assistant and Voice-First Social Platform. Founded by Yusuf Mwachiti from Kenya.",
+  "requestFramePermissions": [
+    "microphone",
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

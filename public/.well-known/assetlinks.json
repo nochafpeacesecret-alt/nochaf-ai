@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.nochafai.app",
+      "sha256_cert_fingerprints": [
+        "44:C4:A6:99:2B:87:68:C2:A2:96:F8:5D:5F:D8:74:20:3B:87:84:5A:72:A6:AE:C7:2B:6F:68:AC:5A:4B:13:EE"
+      ]
+    }
+  }
+]
